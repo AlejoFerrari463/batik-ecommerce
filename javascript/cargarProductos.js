@@ -43,12 +43,23 @@ contenedorDeCards.classList.add("row", "row-cols-1", "row-cols-sm-2","row-cols-x
 
 filtarPorCategoria.forEach((element)=>{
 
+    const {nombre, precio,imagen}= element
+
     const col = document.createElement("div")
     col.classList.add("col")
 
     const cards = document.createElement("div")
     cards.classList.add("card")
-    cards.innerText=`${element.nombre}`
+    cards.innerHTML = `
+        <img src="${imagen}" class="card-img-top" alt="${nombre}">
+        <div class="card-body" >
+            <h5 class="card-title">${nombre}</h5>
+            <p class="card-text">${precio}</p>
+        </div>
+
+    
+    `
+
 
 
     col.appendChild(cards)

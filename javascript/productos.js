@@ -27,8 +27,9 @@ class producto {
 
 export const hombresProductos = [
 
-    new producto(1,"Zapas retro",100,"httppsdsa","hombre","Adidas"),
-    new producto(2,"Campera retro",3000,"httppsdsa","mujer","Nike"),
-    
+    new producto(1,"Zapas retro",250000,"httppsdsa","hombre","Adidas"),
+    new producto(2,"Campera retro",300000,"httppsdsa","mujer","Nike"),
+    new producto(3,"Ojotas Hawaii",40000,"httppsdsa","hombre","Nike"),
+  
 ]
 
