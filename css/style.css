@@ -1,0 +1,55 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+/* NAVBAR - INICIO */
+
+.navbar {
+
+    height: 70px;
+
+}
+
+.navbar-collapse {
+
+    display: flex;
+    justify-content: center;
+    margin-right: 90px;
+
+}
+
+.prueba {
+
+    width: 50%;
+    height: 100px;
+    background-color: red;
+
+}
+
+.nav-link {
+
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: 1%;
+}
+
+.nav-link:hover {
+   
+    box-shadow: 0px 0px 5px red;
+
+}
+
+
+/* NAVBAR - FIN */
+
+
+.card {
+
+    margin: 30px 10px;
+
+}
