@@ -72,3 +72,19 @@ filtarPorCategoria.forEach((element)=>{
 
 
 }
+
+
+export function buscarPorCategoria(categoria){
+
+
+  const filtrar = productosTraidos.filter((element)=>{
+
+      if (element.categoria==categoria){
+         return element
+      }
+
+  })
+
+  return filtrar
+
+}

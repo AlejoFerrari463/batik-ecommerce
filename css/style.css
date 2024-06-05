@@ -6,6 +6,20 @@
 
 }
 
+.main {
+
+    display: grid;
+    grid-template-columns: 350px 1fr;
+
+}
+
+.filtros {
+
+    width: 330px;
+    background-color: red;
+
+}
+
 /* NAVBAR - INICIO */
 
 .navbar {

@@ -34,18 +34,5 @@ export const productos = [
     new producto(4,"Zapatillas Jordan Jumpman",350000,"Hombre","Zapatilla","Nike","https://www.moov.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwff1708da/products/NIDZ4475-006/NIDZ4475-006-1.JPG"),
 ]
 
-export function buscarPorGenero(genero){
 
-
-    const filtrar = hombresProductos.filter((element)=>{
-
-        if (element.genero==genero){
-           return element
-        }
-
-    })
-
-    return filtrar
-
-}
 
