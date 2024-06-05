@@ -23,6 +23,11 @@ const productosTraidos  = [...productos.productos]
 
 */
 
+const main = document.querySelector("#main")
+
+const contenedorDeCards = document.createElement("div")
+contenedorDeCards.classList.add("row", "row-cols-1", "row-cols-sm-2","row-cols-xl-3")
+
 
 export function cargaDeProductos(genero){
 
@@ -33,15 +38,58 @@ export function cargaDeProductos(genero){
         }
     
    
-})
-
-const main = document.querySelector("#main")
-
-const contenedorDeCards = document.createElement("div")
-contenedorDeCards.classList.add("row", "row-cols-1", "row-cols-sm-2","row-cols-xl-3")
+    })
+    contenedorDeCards.innerHTML=``
 
 
-filtarPorCategoria.forEach((element)=>{
+    filtarPorCategoria.forEach((element)=>{
+
+        const {nombre, precio,imagen}= element
+
+        const col = document.createElement("div")
+        col.classList.add("col")
+
+        const cards = document.createElement("div")
+        cards.classList.add("card")
+        cards.innerHTML = `
+            <img src="${imagen}" class="card-img-top" alt="${nombre}">
+            <div class="card-body" >
+                <h5 class="card-title">${nombre}</h5>
+                <p class="card-text">$${precio}</p>
+            </div>
+
+        
+        `
+
+
+
+        col.appendChild(cards)
+
+        contenedorDeCards.appendChild(col)
+
+        main.appendChild(contenedorDeCards)
+
+    })
+
+
+}
+
+
+export function cargaDeProductosPorCategoria(genero,categoria){
+
+    const filtarPorCategoria = productosTraidos.filter((element)=>{
+  
+        if (element.genero==genero && element.categoria==categoria){
+            return element
+        }
+  
+ 
+    })
+
+
+    contenedorDeCards.innerHTML=``
+
+    filtarPorCategoria.forEach((element)=>{
 
     const {nombre, precio,imagen}= element
 
@@ -68,7 +116,7 @@ filtarPorCategoria.forEach((element)=>{
 
     main.appendChild(contenedorDeCards)
 
-})
+    })
 
 
 }
