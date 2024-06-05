@@ -1,5 +1,5 @@
 import * as productos from "../javascript/productos.js"
-const productosTraidos  = [...productos.hombresProductos]
+const productosTraidos  = [...productos.productos]
 
 
 
@@ -24,11 +24,11 @@ const productosTraidos  = [...productos.hombresProductos]
 */
 
 
-export function cargaDeProductos(categoria){
+export function cargaDeProductos(genero){
 
     const filtarPorCategoria = productosTraidos.filter((element)=>{
     
-        if (element.categoria==categoria){
+        if (element.genero==genero){
             return element
         }
     
@@ -54,7 +54,7 @@ filtarPorCategoria.forEach((element)=>{
         <img src="${imagen}" class="card-img-top" alt="${nombre}">
         <div class="card-body" >
             <h5 class="card-title">${nombre}</h5>
-            <p class="card-text">${precio}</p>
+            <p class="card-text">$${precio}</p>
         </div>
 
     
@@ -72,5 +72,3 @@ filtarPorCategoria.forEach((element)=>{
 
 
 }
-
-cargaDeProductos("hombre")
