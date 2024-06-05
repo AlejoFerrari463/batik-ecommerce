@@ -88,3 +88,33 @@ export function buscarPorCategoria(categoria){
   return filtrar
 
 }
+
+export function buscarPorMarca(marca,genero){
+
+
+  const filtrar = productosTraidos.filter((element)=>{
+
+      if (element.marca==marca && element.genero==genero){
+         return element
+      }
+
+  })
+
+  return filtrar
+
+}
+
+export function buscarPorPrecio(precio,genero){
+
+
+  const filtrar = productosTraidos.filter((element)=>{
+
+      if (element.precio>=precio && element.genero==genero){
+         return element
+      }
+
+  })
+
+  return filtrar
+
+}
