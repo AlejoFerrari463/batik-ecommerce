@@ -24,12 +24,7 @@ const productosTraidos = [...productos.productos];
 const main = document.querySelector("#main");
 
 const contenedorDeCards = document.createElement("div");
-contenedorDeCards.classList.add(
-  "row",
-  "row-cols-1",
-  "row-cols-sm-2",
-  "row-cols-xl-3"
-);
+contenedorDeCards.classList.add("contenedor-cards");
 
 export function cargaDeProductos(genero) {
   const filtarPorCategoria = productosTraidos.filter((element) => {
