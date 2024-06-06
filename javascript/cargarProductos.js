@@ -1,7 +1,5 @@
-import * as productos from "../javascript/productos.js"
-const productosTraidos  = [...productos.productos]
-
-
+import * as productos from "../javascript/productos.js";
+const productosTraidos = [...productos.productos];
 
 /*
 
@@ -23,35 +21,33 @@ const productosTraidos  = [...productos.productos]
 
 */
 
-const main = document.querySelector("#main")
+const main = document.querySelector("#main");
 
-const contenedorDeCards = document.createElement("div")
-contenedorDeCards.classList.add("row", "row-cols-1", "row-cols-sm-2","row-cols-xl-3")
+const contenedorDeCards = document.createElement("div");
+contenedorDeCards.classList.add(
+  "row",
+  "row-cols-1",
+  "row-cols-sm-2",
+  "row-cols-xl-3"
+);
 
+export function cargaDeProductos(genero) {
+  const filtarPorCategoria = productosTraidos.filter((element) => {
+    if (element.genero == genero) {
+      return element;
+    }
+  });
+  contenedorDeCards.innerHTML = ``;
 
-export function cargaDeProductos(genero){
+  filtarPorCategoria.forEach((element) => {
+    const { nombre, precio, imagen } = element;
 
-    const filtarPorCategoria = productosTraidos.filter((element)=>{
-    
-        if (element.genero==genero){
-            return element
-        }
-    
-   
-    })
-    contenedorDeCards.innerHTML=``
+    const col = document.createElement("div");
+    col.classList.add("col");
 
-
-    filtarPorCategoria.forEach((element)=>{
-
-        const {nombre, precio,imagen}= element
-
-        const col = document.createElement("div")
-        col.classList.add("col")
-
-        const cards = document.createElement("div")
-        cards.classList.add("card")
-        cards.innerHTML = `
+    const cards = document.createElement("div");
+    cards.classList.add("card");
+    cards.innerHTML = `
             <img src="${imagen}" class="card-img-top" alt="${nombre}">
             <div class="card-body" >
                 <h5 class="card-title">${nombre}</h5>
@@ -59,45 +55,33 @@ export function cargaDeProductos(genero){
             </div>
 
         
-        `
+        `;
 
+    col.appendChild(cards);
 
+    contenedorDeCards.appendChild(col);
 
-        col.appendChild(cards)
-
-        contenedorDeCards.appendChild(col)
-
-        main.appendChild(contenedorDeCards)
-
-    })
-
-
+    main.appendChild(contenedorDeCards);
+  });
 }
 
+export function cargaDeProductosPorCategoria(genero, categoria) {
+  const filtarPorCategoria = productosTraidos.filter((element) => {
+    if (element.genero == genero && element.categoria == categoria) {
+      return element;
+    }
+  });
 
-export function cargaDeProductosPorCategoria(genero,categoria){
+  contenedorDeCards.innerHTML = ``;
 
-    const filtarPorCategoria = productosTraidos.filter((element)=>{
-  
-        if (element.genero==genero && element.categoria==categoria){
-            return element
-        }
-  
- 
-    })
+  filtarPorCategoria.forEach((element) => {
+    const { nombre, precio, imagen } = element;
 
+    const col = document.createElement("div");
+    col.classList.add("col");
 
-    contenedorDeCards.innerHTML=``
-
-    filtarPorCategoria.forEach((element)=>{
-
-    const {nombre, precio,imagen}= element
-
-    const col = document.createElement("div")
-    col.classList.add("col")
-
-    const cards = document.createElement("div")
-    cards.classList.add("card")
+    const cards = document.createElement("div");
+    cards.classList.add("card");
     cards.innerHTML = `
         <img src="${imagen}" class="card-img-top" alt="${nombre}">
         <div class="card-body" >
@@ -106,63 +90,31 @@ export function cargaDeProductosPorCategoria(genero,categoria){
         </div>
 
     
-    `
+    `;
 
+    col.appendChild(cards);
 
+    contenedorDeCards.appendChild(col);
 
-    col.appendChild(cards)
+    main.appendChild(contenedorDeCards);
+  });
+}
 
-    contenedorDeCards.appendChild(col)
+export function desabilitarCheckBox(exep, filtro) {
+  filtro.forEach((element) => {
+    if (element.value != exep) {
+      element.disabled = true;
+    }
+  });
+}
 
-    main.appendChild(contenedorDeCards)
+export function habilitarCheckBox(filtro){
 
+    filtro.forEach((element)=>{
+
+       
+        element.disabled = false
+      
     })
-
-
-}
-
-
-export function buscarPorCategoria(categoria){
-
-
-  const filtrar = productosTraidos.filter((element)=>{
-
-      if (element.categoria==categoria){
-         return element
-      }
-
-  })
-
-  return filtrar
-
-}
-
-export function buscarPorMarca(marca,genero){
-
-
-  const filtrar = productosTraidos.filter((element)=>{
-
-      if (element.marca==marca && element.genero==genero){
-         return element
-      }
-
-  })
-
-  return filtrar
-
-}
-
-export function buscarPorPrecio(precio,genero){
-
-
-  const filtrar = productosTraidos.filter((element)=>{
-
-      if (element.precio>=precio && element.genero==genero){
-         return element
-      }
-
-  })
-
-  return filtrar
 
 }
