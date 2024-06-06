@@ -63,6 +63,25 @@ export function cargaDeProductos(genero) {
 
     main.appendChild(contenedorDeCards);
   });
+
+  const cards = document.querySelectorAll(".card")
+
+    cards.forEach((element)=>{
+
+        element.addEventListener("mouseenter",()=>{
+
+            element.classList.add("card-hover")
+
+        })
+
+        element.addEventListener("mouseleave",()=>{
+
+            element.classList.remove("card-hover")
+
+        })
+
+    })
+
 }
 
 export function cargaDeProductosPorCategoria(genero, categoria) {
@@ -98,6 +117,25 @@ export function cargaDeProductosPorCategoria(genero, categoria) {
 
     main.appendChild(contenedorDeCards);
   });
+
+    const cards = document.querySelectorAll(".card")
+
+    cards.forEach((element)=>{
+
+        element.addEventListener("mouseenter",()=>{
+
+            element.classList.add("card-hover")
+
+        })
+
+        element.addEventListener("mouseleave",()=>{
+
+            element.classList.remove("card-hover")
+
+        })
+
+    })
+
 }
 
 export function desabilitarCheckBox(exep, filtro) {

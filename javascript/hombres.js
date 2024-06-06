@@ -8,7 +8,6 @@ c.cargaDeProductos(h)
 const filtro = document.querySelectorAll("input")
 
 
-
 filtro.forEach((element)=>{
 
     
@@ -21,18 +20,18 @@ filtro.forEach((element)=>{
             c.desabilitarCheckBox(event.target.value,filtro);
     
             c.cargaDeProductosPorCategoria(h,event.target.value)
-          
+            
           
         }
     
         else {
+
             c.cargaDeProductos(h)
 
-            c.habilitarCheckBox(filtro)
+            c.habilitarCheckBox(filtro)        
             
         }
-    
-                
+               
        
     })
 
