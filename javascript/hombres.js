@@ -13,24 +13,56 @@ filtro.forEach((element)=>{
     
     element.addEventListener("click",(event)=>{
         
-        console.log(element.tabIndex)
-    
-        if (element.checked){
+        
 
-            c.desabilitarCheckBox(event.target.value,filtro);
+        if (element.name=="Categoria"){
+
+            if (element.checked){
+
+                c.desabilitarCheckBox(event.target.value,filtro);
+        
+                c.cargaDeProductosPorCategoria(h,event.target.value)
+                
+              
+            }
+        
+            else {
     
-            c.cargaDeProductosPorCategoria(h,event.target.value)
+                c.cargaDeProductos(h)
+    
+                c.habilitarCheckBox(filtro)        
+                
+            }
+
+        }
+
+        if(element.name=="Marca"){
+
             
-          
+
+            if (element.checked){
+
+                console.log(event.target.value)
+
+                c.desabilitarCheckBox(event.target.value,filtro);
+        
+                c.cargaDeProductosPorMarca(h,event.target.value)
+                
+              
+            }
+        
+            else {
+    
+                c.cargaDeProductos(h)
+    
+                c.habilitarCheckBox(filtro)         
+                
+            }
+
+
         }
     
-        else {
-
-            c.cargaDeProductos(h)
-
-            c.habilitarCheckBox(filtro)        
-            
-        }
+        
                
        
     })
